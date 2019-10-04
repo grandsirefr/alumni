@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+{% endblock %}
+{% block body %}
+    <div id="presentation">
+        <p>Ce site a été créer afin de rassemblé les anciens élève de la formation du GRETA. Il permet de communiquer avec
+            les
+            élèves d'obtenir une liste des entreprises qui ont pris des stagiaires et de faire des recherches sur les
+            différentes
+            évolutions de chacun.
+        </p>
+    </div>
+    <form method="get" action="#">
+        <select>
+            <option value="formation">Formation</option>
+            <option value="annee">Année</option>
+        </select>
+        <label for="precise">Préciser</label>
+        <input type="text" id="precise" name="precision"/>
+        <button type="submit" class="button">Go !</button>
+    </form>
+{% endblock %}

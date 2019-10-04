@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+    <h1>Création de compte</h1>
+    <form action="#" method="post">
+        <div id="first">
+
+            <label for="firstname">Prénom</label>
+            <input type="text" name="prenom" id="firstname">
+
+
+            <label for="lastname">Nom</label>
+            <input type="text" name="lastname" id="lastname">
+
+
+            <label for="pass">Mot de passe</label>
+            <input type="password" name="pass" id="pass">
+
+
+
+            <div id="coordonnées">
+                <p>Coordonnées:</p>
+                <label for="num">N°</label>
+                <input type="number" name="numb" id="num">
+
+
+                <label for="street">voie</label>
+                <input type="text" name="street" id="street">
+
+
+                <label for="zipcode">Code Postale</label>
+                <input type="number" name="zipcode" id="zipcode">
+
+
+                <label for="town">Ville</label>
+                <input type="text" name="town" id="town">
+
+            </div>
+        </div>
+        <div id="second">
+
+            <label for="mail"></label>
+            <input type="email" name="mail" id="mail">
+
+            <label for="birthday"></label>
+            <input type="date" name="birthday" id="birthday">
+
+            <label for="formation"></label>
+            <input type="text" name="formation" id="formation">
+
+            <label for="Promote"></label>
+            <input type="number" id="promote" name="promote">
+
+
+        </div>
+    </form>
+{% endblock %}

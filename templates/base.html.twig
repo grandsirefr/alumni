@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}intranet greta{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+    </head>
+
+    <body>
+        <div class="entete" id="logo">
+            <img src="{{ asset('images/logoLeGreta@2x.png') }}" alt="logogreta">
+            <nav>
+                <ul>
+                    <li><a href="#">Accueil</a></li>
+                    <li><a href="#">Inscription</a></li>
+                    <li><a href="#">Recherche</a></li>
+                    <li><a href="#">Mon Compte</a></li>
+                </ul>
+            </nav>
+        </div>
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
