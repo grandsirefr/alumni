@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -21,6 +23,17 @@ class Degree
      */
     private $name;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Promotion", mappedBy="degree")
+     */
+    private $promotions;
+
+
+    public function __construct()
+    {
+        $this->promotions = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -37,4 +50,37 @@ class Degree
 
         return $this;
     }
+
+    /**
+     * @return Collection|Promotion[]
+     */
+    public function getPromotions(): Collection
+    {
+        return $this->promotions;
+    }
+
+    public function addPromotion(Promotion $promotion): self
+    {
+        if (!$this->promotions->contains($promotion)) {
+            $this->promotions[] = $promotion;
+            $promotion->setDegree($this);
+        }
+
+        return $this;
+    }
+
+    public function removePromotion(Promotion $promotion): self
+    {
+        if ($this->promotions->contains($promotion)) {
+            $this->promotions->removeElement($promotion);
+            // set the owning side to null (unless already changed)
+            if ($promotion->getDegree() === $this) {
+                $promotion->setDegree(null);
+            }
+        }
+
+        return $this;
+    }
+
+
 }

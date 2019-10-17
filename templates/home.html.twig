@@ -14,12 +14,20 @@
         </p>
     </div>
     <form method="get" action="#">
-        <select>
-            <option value="formation">Formation</option>
-            <option value="annee">Année</option>
+        <label for="degree">Formation</label>
+        <select name="degree" id="degree">
+            {% for degree in degrees %}
+                <option value="{{ degree.id }}">{{ degree.name }}</option>
+            {% endfor %}
         </select>
-        <label for="precise">Préciser</label>
-        <input type="text" id="precise" name="precision"/>
+        <div>
+            <label for="year">Année</label>
+            <select name="year" id="year">
+                {% for year in years %}
+                    <option value="{{ year.id }}">{{ year.title }}</option>
+                {% endfor %}
+            </select>
+        </div>
         <button type="submit" class="button">Go !</button>
     </form>
 {% endblock %}
