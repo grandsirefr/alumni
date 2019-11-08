@@ -9,13 +9,16 @@
     <body>
         <div class="entete" id="logo">
             <img src="{{ asset('images/logoLeGreta@2x.png') }}" alt="logogreta">
-            <nav>
-                <ul>
-                    <li><a href="/">Accueil</a></li>
-                    <li><a href="/account/create">Inscription</a></li>
-                    <li><a href="/">Recherche</a></li>
-                    <li><a href="#">Mon Compte</a></li>
-                </ul>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="/">Acceuil</a>
+
+                <a class="navbar-brand" href="/account/create">Inscription</a>
+
+                <a class="navbar-brand" href="/">Recherche</a>
+
+                <a class="navbar-brand" href="#">Mon Compte</a>
+
+
             </nav>
         </div>
         {% block body %}
