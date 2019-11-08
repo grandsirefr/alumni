@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div id="body">
+        <div id="social">
+            <h2>Réseaux Sociaux</h2>
+            <ul>
+                <li><div><img src="{{ asset('images/facebook.png') }}" alt="facebook"></div>{{ user.firstname }} {{ user.lastname }}</li>
+                <li><div><img src="{{ asset('images/instagram.png') }}" alt=""></div>{{ user.username }}</li>
+                <li><div><img src="{{ asset('images/linkedin.png') }}" alt=""></div>{{ user.firstname }} {{ user.lastname }}</li>
+                <li><div><img src="{{ asset('images/twitter.png') }}" alt=""></div>{{ user.username }}</li>
+            </ul>
+        </div>
+        <div id="information">
+            <div id="tete">
+                {% set avatar_dir = constant('App\\Service\\Avatar\\SvgAvatarFactory::AVATAR_DIR') %}
+                <div id="avatar"><img src="{{ asset(upload_dir ~ '/' ~ avatar_dir ~ '/' ~ user.avatar)}}" alt=""></div>
+                <h1> Fiche Individuelle</h1>
+            </div>
+            <div id="info">
+                <div class="perso">
+                    <ul>
+                        <li>Nom: {{ user.lastname }}</li>
+                        <li>Prénom: {{ user.firstname }}</li>
+                        <li>{% for promo in user.promotions %}
+                        <li>Formation: {{ promo.degree.name }}</li>
+                        {% endfor %}
+                        </li>
+                        <li>{% for promo in user.promotions %}
+                        <li>Promotion: {{ promo.year.title }}</li>
+                        </li>{% endfor %}
+                        <li>Date de Naissance:{{ user.birthdate.date|date(' d / m / Y') }}</li>
+                    </ul>
+
+                </div>
+                <div class="contact">
+                    <ul>
+                        <li>Coordonnées</li>
+                        <li>Ville: {{ user.city }}</li>
+                        <li>Adresse mail: {{ user.email }}</li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,3 +1,6 @@
 #index:
 #    path: /
 #   controller: App\Controller\HomeController::index
+#AccountController:
+#   path: /account/create
+#   controller: App\Controller\AccountController::createAccount

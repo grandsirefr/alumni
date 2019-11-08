@@ -8,11 +8,12 @@ body{
     background-color: #FBF8F9;
 }
 .entete{
-    width: 100%;
+    max-width: 1200px;
     text-align: end;
+    margin: 0 auto;
 }
 .entete img{
-
+    margin: 0 10%;
     width: 18%;
 }
 .entete nav{
@@ -67,4 +68,71 @@ label,input{
 
 select{
     min-width: 300px;
+}
+
+#search-results{
+    width: 80%;
+    margin: auto auto;
+
+}
+#search-results ul{
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+#search-results li{
+    list-style: none;
+    width: 25%;
+    text-align: center;
+    margin: 1%;
+    border: 2px solid black;
+    border-radius: 30px;
+    padding: 1%;
+
+}
+#search-results li p{
+    display: block;
+    margin: auto auto;
+}
+
+#social{
+    min-width: 20%;
+    border-right: 2px solid grey;
+}
+#tete{
+    display: flex;
+    width: 70%;
+    margin: 0 auto;
+}
+#tete>div{
+    margin: 0 10%;
+}
+#information{
+    width: 60%;
+}
+#body{
+    max-width: 1200px;
+    margin: 10% auto;
+    display: flex;
+}
+.perso{
+    width: 50%;
+}
+.contact{
+    width: 50%;
+}
+#info{
+    display: flex;
+
+}
+#info li{
+    list-style: none;
+    margin: 2% 5%;
+}
+#social li{
+    list-style: none;
+    display: flex;
+
 }

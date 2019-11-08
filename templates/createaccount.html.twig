@@ -1,6 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block main %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+{% endblock %}
+{% block body %}
     <h1>Création de compte</h1>
     <form action="#" method="post">
         <div id="first">
@@ -51,7 +55,7 @@
             <label for="Promote"></label>
             <input type="number" id="promote" name="promote">
 
-
         </div>
+        <button type="submit" class="button">Go !</button>
     </form>
 {% endblock %}

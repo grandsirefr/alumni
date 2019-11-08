@@ -14,9 +14,7 @@ class AvatarMatrix{
     //Méthode
     
     public function __construct(){
-        //$this->setSize($size);
-        //$this->setColors($colors);
-        //$this->matrix=generateMatrix($this->size,$this->colors);
+
         $this->size=self::DEFAULT_SIZE;
         $this->colors=self::DEFAULT_COLORS;
         $this->matrix=[];

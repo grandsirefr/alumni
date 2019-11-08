@@ -11,8 +11,10 @@ namespace App\Controller;
 
 
 use App\Repository\DegreeRepository;
+use App\Repository\UserRepository;
 use App\Repository\YearRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
@@ -20,13 +22,27 @@ class HomeController extends AbstractController
     /**
      * @Route("/",name="home.index")
      */
-    public function index(DegreeRepository $degreeRepo, YearRepository $yearRepo){
+    public function index(DegreeRepository $degreeRepository, YearRepository $yearRepository,Request $request, UserRepository $userRepository){
 
-        $degrees = $degreeRepo->findAll();
-        $years=$yearRepo->findAll();
+        if($request->request->count()){
+            $degree=$request->request->get('degree');
+            $year=$request->request->get('year');
+            //dd($degree,$year);
+            $templateData['results']=$userRepository->search($degree,$year);
+        }
+
+        $templateData['degrees']=$degreeRepository->findBy([],['name'=>'ASC']);
+        $templateData['years']= $yearRepository->findBy([],['title'=>'DESC']);
+
+        //$degrees = $degreeRepo->findAll();
+        //$years=$yearRepo->findAll();
+
         //dd($degrees);
-        return $this->render('home.html.twig',['degrees'=>$degrees,'years'=>$years]);
+        //$result =$userRepository->search($degree,$year);
+
+        return $this->render('home.html.twig',$templateData);
     }
+
 
 
 
