@@ -5,9 +5,11 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 {% endblock %}
 {% block body %}
-    <h1>Création de compte</h1>
-    <form action="#" method="post">
-        <div id="first">
+    <div class="container">
+    <h1 class="text-center">Création de compte</h1>
+
+    <form action="#" method="post" >
+        <div id="form-group">
 
             <label for="firstname">Prénom</label>
             <input type="text" name="prenom" id="firstname">
@@ -22,7 +24,7 @@
 
 
 
-            <div id="coordonnées">
+            <div id="form-group">
                 <p>Coordonnées:</p>
                 <label for="num">N°</label>
                 <input type="number" name="numb" id="num">
@@ -41,7 +43,7 @@
 
             </div>
         </div>
-        <div id="second">
+        <div id="form-group">
 
             <label for="mail"></label>
             <input type="email" name="mail" id="mail">
@@ -58,4 +60,5 @@
         </div>
         <button type="submit" class="button">Go !</button>
     </form>
+    </div>
 {% endblock %}

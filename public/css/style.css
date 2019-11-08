@@ -7,6 +7,9 @@
 body{
     background-color: #FBF8F9;
 }
+li{
+    list-style: none;
+}
 .entete{
     max-width: 1200px;
     text-align: end;
@@ -37,7 +40,6 @@ body{
 
 form{
     width: 50%;
-    margin: 10% auto;
     text-align: center;
 }
 form a{
@@ -96,43 +98,12 @@ select{
     display: block;
     margin: auto auto;
 }
-
-#social{
-    min-width: 20%;
-    border-right: 2px solid grey;
+.fa, .fas{
+    color: white;
 }
-#tete{
-    display: flex;
-    width: 70%;
+.far {
+    color: #007bff;
+}
+.center-form{
     margin: 0 auto;
-}
-#tete>div{
-    margin: 0 10%;
-}
-#information{
-    width: 60%;
-}
-#body{
-    max-width: 1200px;
-    margin: 10% auto;
-    display: flex;
-}
-.perso{
-    width: 50%;
-}
-.contact{
-    width: 50%;
-}
-#info{
-    display: flex;
-
-}
-#info li{
-    list-style: none;
-    margin: 2% 5%;
-}
-#social li{
-    list-style: none;
-    display: flex;
-
 }

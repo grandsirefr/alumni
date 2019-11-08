@@ -10,17 +10,22 @@ namespace App\Controller\Admin;
 
 
 use App\Repository\DegreeRepository;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use App\Repository\PromotionRepository;
+use App\Repository\YearRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Routing\Annotation\Route;
 
 class AdminController extends AbstractController
 {
 
     /**
-     * @Route('/admin',name="admin.index")
+     * @Route("/admin",name="admin.index")
      */
-    public function index(DegreeRepository $degreeRepo){
+    public function index(DegreeRepository $degreeRepo, YearRepository $yearRepo,PromotionRepository $promotionRepo){
         $degrees=$degreeRepo->findAll();
-        return $this->render('admin/index.html.twig',['degrees'=>$degrees]);
+        $years=$yearRepo->findAll();
+        $promotions=$promotionRepo->findAll();
+        //dd($promotions,$years);
+        return $this->render('admin/index.html.twig',['degrees'=>$degrees,'years'=>$years,'promotions'=>$promotions]);
     }
 }

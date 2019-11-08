@@ -1,0 +1,106 @@
+{% extends 'admin/base.html.twig' %}
+{% block body %}
+    <div>
+
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Home</a>
+                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
+                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
+            </div>
+        </nav>
+        <div class="row">
+
+        </div>
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+
+                <a href="{{ path('admin.degree.new') }}" class="btn btn-primary mx-auto mt-5 mb-5"><i class="fas fa-plus"></i> Nouvelle Formation</a>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Nom de le Formation</th>
+                        <th scope="col">Modifier</th>
+                        <th scope="col">Supprimer</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for degree in degrees %}
+                        <tr>
+                            <td scope="row">
+                                {{ degree.name }}
+                            </td>
+                            <th><a href="#"><i class="far fa-edit"></i></a></th>
+                            <th><a href="#"><i class="far fa-trash-alt"></i></a></th>
+                        </tr>
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+
+                <a href="#" class="btn btn-primary mx-auto mt-5 mb-5"><i class="fas fa-plus"></i> Nouvelle Années</a>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Nom de le Formation</th>
+                        <th scope="col">Modifier</th>
+                        <th scope="col">Supprimer</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for year in years %}
+                        <tr>
+                            <td scope="row">
+                                {{ year.title }}
+                            </td>
+                            <th><a href="#"><i class="far fa-edit"></i></a></th>
+                            <th><a href="#"><i class="far fa-trash-alt"></i></a></th>
+                        </tr>
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Nom de le Formation</th>
+                        <th scope="col">Années</th>
+                        <th scope="col">Modifier</th>
+                        <th scope="col">Supprimer</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for promotion in promotions %}
+                        <tr>
+                            <td scope="row">
+                                {{ promotion.degree.name }}
+                            </td>
+                            <td>
+                                {{ promotion.year.title }}
+                            </td>
+                            <td><a href="#"><i class="far fa-edit"></i></a></td>
+                            <td><a href="#"><i class="far fa-trash-alt"></i></a></td>
+                        </tr>
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
