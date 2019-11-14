@@ -25,7 +25,7 @@ class AdminController extends AbstractController
         $degrees=$degreeRepo->findAll();
         $years=$yearRepo->findAll();
         $promotions=$promotionRepo->findAll();
-        //dd($promotions,$years);
+        //dump($degrees);
         return $this->render('admin/index.html.twig',['degrees'=>$degrees,'years'=>$years,'promotions'=>$promotions]);
     }
 }
