@@ -13,7 +13,10 @@ class YearFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title',TextType::class,['label'=>'années'])
+            ->add('title',TextType::class,[
+                        'label'=>'années',
+                        'attr'=>['class'=>'name_field'],
+                        'empty_data'=>''])
         ;
     }
 

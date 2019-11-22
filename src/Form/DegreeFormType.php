@@ -16,6 +16,8 @@ class DegreeFormType extends AbstractType
         $builder
             ->add('name',TextType::class,[
                         'label'=>'nom de la formation',
+                        'attr'=>['class'=>'name_field'],
+                        'empty_data'=>'',
                         'constraints'=>[
                             new NotBlank(['message'=>'Le nom de la formation'])
                         ]

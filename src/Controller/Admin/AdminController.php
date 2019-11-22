@@ -22,10 +22,13 @@ class AdminController extends AbstractController
      * @Route("/admin",name="admin.index")
      */
     public function index(DegreeRepository $degreeRepo, YearRepository $yearRepo,PromotionRepository $promotionRepo){
-        $degrees=$degreeRepo->findAll();
-        $years=$yearRepo->findAll();
-        $promotions=$promotionRepo->findAll();
+
+
+        $templateData=[];
+        $templateData['degrees']=$degreeRepo->findBy([],['name'=> 'ASC']);
+        $templateData['years'] = $yearRepo->findBy([],['title'=> 'ASC']);
+        $templateData['promotions']= $promotionRepo->getAllOrderByDegreeAndYear();
         //dump($degrees);
-        return $this->render('admin/index.html.twig',['degrees'=>$degrees,'years'=>$years,'promotions'=>$promotions]);
+        return $this->render('admin/index.html.twig',['templateData'=>$templateData]);
     }
 }
