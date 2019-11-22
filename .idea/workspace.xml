@@ -2,32 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c15e2988-e7cb-4eaf-bbcb-8506aa387ef9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Controller/Admin/AdminPromotionController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/Admin/AdminYearController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/admin/degree/_form.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/admin/degree/edit.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/admin/promotion/_form.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/admin/promotion/edit.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/admin/promotion/new.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/admin/year/_form.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/admin/year/edit.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/admin/year/new.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20191121124523.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Twig/AssetAvatarTwigExtension.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/security/_menu.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/alumni.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/alumni.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Admin/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/AdminController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Admin/AdminDegreeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/AdminDegreeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/AdminPromotionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/AdminPromotionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/AdminYearController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/AdminYearController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/Userfixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/Userfixtures.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Degree.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Degree.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Promotion.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Promotion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Year.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Year.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Form/DegreeFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/DegreeFormType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/YearFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/YearFormType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/PromotionRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PromotionRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/admin/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/degree/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/degree/new.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/admin/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -73,13 +72,6 @@
         <item name="alumni" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="alumni: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="promotion: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="alumni" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="alumni: schema" type="76f4a085:MysqlImplModel$Schema" />
         <item name="user: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
     </expand>
@@ -94,14 +86,6 @@
         <option value="CSS File" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>box</find>
-      <find>butt</find>
-      <find>bod</find>
-      <find>for</find>
-    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -191,6 +175,12 @@
       <path value="$PROJECT_DIR$/vendor/symfony/intl" />
       <path value="$PROJECT_DIR$/vendor/symfony/property-access" />
       <path value="$PROJECT_DIR$/vendor/symfony/validator" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-http" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-core" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-csrf" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-guard" />
+      <path value="$PROJECT_DIR$/vendor/twig/extensions" />
     </include_path>
   </component>
   <component name="ProjectId" id="1Tb9Pkf0V8tAxVK6iY3vMPSgRfb" />
@@ -199,22 +189,23 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="JavaScript" />
     <property name="database.console.LAST_STATE" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/admin/promotion" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\alumni\templates\security" />
+      <recent name="C:\wamp64\www\alumni\templates\admin\degree" />
+      <recent name="C:\wamp64\www\alumni" />
+      <recent name="C:\wamp64\www\alumni\src\Controller" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\alumni\templates\admin\promotion" />
       <recent name="C:\wamp64\www\alumni\templates\admin\year" />
       <recent name="C:\wamp64\www\alumni\vendor" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\alumni\templates\admin\degree" />
-      <recent name="C:\wamp64\www\alumni" />
-      <recent name="C:\wamp64\www\alumni\src\Controller" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -257,17 +248,14 @@
       <workItem from="1573197279218" duration="1656000" />
       <workItem from="1573715193937" duration="1776000" />
       <workItem from="1573717912158" duration="96000" />
-      <workItem from="1573718056402" duration="18245000" />
+      <workItem from="1573718056402" duration="20087000" />
+      <workItem from="1573802017235" duration="21729000" />
+      <workItem from="1574080033223" duration="39000" />
+      <workItem from="1574090066258" duration="116000" />
+      <workItem from="1574326320830" duration="15915000" />
+      <workItem from="1574406933995" duration="11558000" />
     </task>
     <servers />
-  </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-    </todo-panel>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />

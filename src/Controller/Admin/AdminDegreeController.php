@@ -30,7 +30,7 @@ class AdminDegreeController extends AbstractController
             $em->persist($degree);
             $em->flush();
             $this->addFlash('success','Formation ajouté a la base de données!');
-            return $this->redirectToRoute('admin.index');
+            return $this->redirectToRoute('admin.index',['_fragment'=>'degree']);
 
         }
         return $this->render('admin/degree/new.html.twig',['form'=>$form->createView()]);
@@ -47,7 +47,7 @@ class AdminDegreeController extends AbstractController
             $em=$this->getDoctrine()->getManager();
             $em->flush();
             $this->addFlash('success','Formation modifié dans la base de données!');
-            return $this->redirectToRoute('admin.index');
+            return $this->redirectToRoute('admin.index',['_fragment'=>'degree']);
         }
 
         return $this->render('admin/degree/edit.html.twig',['form'=>$form->createView()]);
@@ -57,12 +57,13 @@ class AdminDegreeController extends AbstractController
      * @Route("/admin/degree/{id}/delete",name="admin.degree.delete")
      */
     public function delete(Degree $degree){
+        $id='degree-' .$degree->getId();
         $em=$this->getDoctrine()->getManager();
         //dd($degree);
         $em->remove($degree);
         $em->flush();
         $this->addFlash('success','Formation supprimé dans la base de données!');
 
-        return $this->redirectToRoute('admin.index');
+        return $this->json($id);
     }
 }

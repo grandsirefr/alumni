@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="entete" id="logo">
+        <img src="{{ asset('images/logoLeGreta@2x.png') }}" alt="logogreta">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="{{ path('home.index') }}">Acceuil</a>
+            
+            <a class="navbar-brand" href="{{ path('account.createAccount') }}">Inscription</a>
+
+
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+
+                <a class="navbar-brand" href="/profile">Mon Compte</a>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <a class="navbar-brand" href="{{ path('admin.index') }}">Administration</a>
+
+                {% endif %}
+
+                <a class="navbar-brand" href="{{ path('security.logout') }}">se déconnecter</a>
+            {% else %}
+                <a class="navbar-brand" href="{{ path('security.login') }}">se connecter</a>
+            {% endif %}
+
+
+
+    </nav>
+    </div>
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+<div>
+
+    <img src="{{ asset_avatar(app.user.avatar) }}" alt="">
+    <h3>Bonjour {{ app.user.firstname }}</h3>
+</div>
+    {% endif %}
+        

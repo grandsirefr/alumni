@@ -5,52 +5,54 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 {% endblock %}
 {% block body %}
+    <div class="container">
     <div id="presentation">
         <p>Ce site a été créer afin de rassemblé les anciens élève de la formation du GRETA. Il permet de communiquer avec
-            les
-            élèves d'obtenir une liste des entreprises qui ont pris des stagiaires et de faire des recherches sur les
-            différentes
+            les élèves d'obtenir une liste des entreprises qui ont pris des stagiaires et de faire des recherches sur les différentes
             évolutions de chacun.
         </p>
     </div>
-    <form action="{{ path('home.index',{"_fragment":"search-results"}) }}" method="post" class="center-form">
 
-        <label for="degree">Formation</label>
-        <select name="degree" id="degree">
-            <option value="">Toutes les Années</option>
-            {% for degree in degrees %}
-                <option value="{{ degree.id }}">{{ degree.name }}</option>
-            {% endfor %}
-        </select>
-        <div>
-            <label for="year">Année</label>
-            <select name="year" id="year">
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <form action="{{ path('home.index',{"_fragment":"search-results"}) }}" method="post" class="center-form">
+
+            <label for="degree">Formation</label>
+            <select name="degree" id="degree">
                 <option value="">Toutes les Années</option>
-                {% for year in years %}
-                    <option value="{{ year.id }}">{{ year.title }}</option>
+                {% for degree in degrees %}
+                    <option value="{{ degree.id }}">{{ degree.name }}</option>
                 {% endfor %}
             </select>
-        </div>
-        <button type="submit" class="button">Go !</button>
-    </form>
-    <section id="search-results">
-        {%  if results is defined %}
-            <ul>
-
-                {% for user in results %}
-                <li>
-                    {% set avatar_dir = constant('App\\Service\\Avatar\\SvgAvatarFactory::AVATAR_DIR') %}
-                    <img src="{{ asset(upload_dir ~ '/' ~ avatar_dir ~ '/' ~ user.avatar)}}" alt="">
-                    <p><a href="{{ path('alumni.index',{"id":user.id,"slug":user.slug}) }}">{{ user.lastname }} {{ user.firstname }}</a><br>
-                    {% for promo in user.promotions %}
-                    {{ promo.degree.name }} {{ promo.year.title }}<br>
+            <div>
+                <label for="year">Année</label>
+                <select name="year" id="year">
+                    <option value="">Toutes les Années</option>
+                    {% for year in years %}
+                        <option value="{{ year.id }}">{{ year.title }}</option>
                     {% endfor %}
-                    </p>
+                </select>
+            </div>
+            <button type="submit" class="button">Go !</button>
+        </form>
+        <section id="search-results">
+            {%  if results is defined %}
+                <ul>
 
-                </li>
-                {% endfor %}
-            </ul>
+                    {% for user in results %}
+                        <li>
+                            {% set avatar_dir = constant('App\\Service\\Avatar\\SvgAvatarFactory::AVATAR_DIR') %}
+                            <img src="{{ asset(upload_dir ~ '/' ~ avatar_dir ~ '/' ~ user.avatar)}}" alt="">
+                            <p><a href="{{ path('alumni.index',{"id":user.id,"slug":user.slug}) }}">{{ user.lastname }} {{ user.firstname }}</a><br>
+                                {% for promo in user.promotions %}
+                                    {{ promo.degree.name }} {{ promo.year.title }}<br>
+                                {% endfor %}
+                            </p>
 
-        {% endif %}
-    </section>
+                        </li>
+                    {% endfor %}
+                </ul>
+
+            {% endif %}
+        </section>
+    {% endif %}
 {% endblock %}

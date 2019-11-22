@@ -26,7 +26,7 @@ class AdminYearController extends AbstractController
             $em->persist($year);
             $em->flush();
             $this->addFlash('success','Années ajouté a la base de données!');
-            return $this->redirectToRoute('admin.index');
+            return $this->redirectToRoute('admin.index',['_fragment'=>'year']);
 
         }
         return $this->render('admin/year/new.html.twig',['form'=>$form->createView()]);
@@ -42,7 +42,7 @@ class AdminYearController extends AbstractController
             $em=$this->getDoctrine()->getManager();
             $em->flush();
             $this->addFlash('success','Années modifié dans la base de données!');
-            return $this->redirectToRoute('admin.index');
+            return $this->redirectToRoute('admin.index',['_fragment'=>'year']);
         }
 
         return $this->render('admin/year/edit.html.twig',['form'=>$form->createView()]);
@@ -52,12 +52,13 @@ class AdminYearController extends AbstractController
      * @Route("/admin/year/{id}/delete",name="admin.year.delete")
      */
     public function delete(Year $year){
+        $id='year-' .$year->getId();
         $em=$this->getDoctrine()->getManager();
         //dd($degree);
         $em->remove($year);
         $em->flush();
         $this->addFlash('success','Années supprimé dans la base de données!');
 
-        return $this->redirectToRoute('admin.index');
+        return $this->json($id);
     }
 }

@@ -12,16 +12,16 @@
         {% endfor %}
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Formation</a>
-                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Années</a>
-                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Promotion</a>
+                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#degree" role="tab" aria-controls="nav-home" aria-selected="true">Formation</a>
+                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#year" role="tab" aria-controls="nav-profile" aria-selected="false">Années</a>
+                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#promotion" role="tab" aria-controls="nav-contact" aria-selected="false">Promotion</a>
             </div>
         </nav>
         <div class="row">
 
         </div>
         <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+            <div class="tab-pane fade show active" id="degree" role="tabpanel" aria-labelledby="nav-home-tab">
 
                 <a href="{{ path('admin.degree.new') }}" class="btn btn-primary mx-auto mt-5 mb-5"><i class="fas fa-plus"></i> Nouvelle Formation</a>
                 <table class="table">
@@ -35,13 +35,13 @@
                     </thead>
                     <tbody>
 
-                    {% for degree in degrees %}
-                        <tr>
+                    {% for degree in templateData.degrees %}
+                        <tr id="degree-{{ degree.id }}">
                             <td scope="row">
                                 {{ degree.name }}
                             </td>
                             <th><a href="{{ path('admin.degree.edit',{id:degree.id}) }}"><i class="far fa-edit"></i></a></th>
-                            <th><a href="{{ path('admin.degree.delete',{id:degree.id}) }}"><i class="far fa-trash-alt"></i></a></th>
+                            <th><a href="{{ path('admin.degree.delete',{id:degree.id}) }}" class="delete-button"><i class="far fa-trash-alt"></i></a></th>
                         </tr>
                     {% endfor %}
 
@@ -49,7 +49,7 @@
                 </table>
 
             </div>
-            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+            <div class="tab-pane fade" id="year" role="tabpanel" aria-labelledby="nav-profile-tab">
 
                 <a href="{{ path('admin.year.new') }}" class="btn btn-primary mx-auto mt-5 mb-5"><i class="fas fa-plus"></i> Nouvelle Années</a>
                 <table class="table">
@@ -63,13 +63,13 @@
                     </thead>
                     <tbody>
 
-                    {% for year in years %}
-                        <tr>
+                    {% for year in templateData.years %}
+                        <tr id="year-{{ year.id }}">
                             <td scope="row">
                                 {{ year.title }}
                             </td>
                             <th><a href="{{ path('admin.year.edit',{id:year.id}) }}"><i class="far fa-edit"></i></a></th>
-                            <th><a href="{{ path('admin.year.delete',{id:year.id}) }}"><i class="far fa-trash-alt"></i></a></th>
+                            <th><a href="{{ path('admin.year.delete',{id:year.id}) }}" class="delete-button"><i class="far fa-trash-alt"></i></a></th>
                         </tr>
                     {% endfor %}
 
@@ -77,9 +77,9 @@
                 </table>
 
             </div>
-            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+            <div class="tab-pane fade" id="promotion" role="tabpanel" aria-labelledby="nav-contact-tab">
 
-                <a href="{{ path('admin.promotion.new') }}" class="btn btn-primary mx-auto mt-5 mb-5"><i class="fas fa-plus"></i> Nouvelle Années</a>
+                <a href="{{ path('admin.promotion.new') }}" class="btn btn-primary mx-auto mt-5 mb-5"><i class="fas fa-plus"></i> Nouvelle Promotion</a>
                 <table class="table">
                     <thead>
                     <tr>
@@ -92,8 +92,8 @@
                     </thead>
                     <tbody>
 
-                    {% for promotion in promotions %}
-                        <tr>
+                    {% for promotion in templateData.promotions %}
+                        <tr id="promo-{{ promotion.id }}">
                             <td scope="row">
                                 {{ promotion.degree.name }}
                             </td>
@@ -101,7 +101,7 @@
                                 {{ promotion.year.title }}
                             </td>
                             <td><a href="{{ path('admin.promotion.edit',{id:promotion.id}) }}"><i class="far fa-edit"></i></a></td>
-                            <td><a href="{{ path('admin.promotion.delete',{id:promotion.id}) }}"><i class="far fa-trash-alt"></i></a></td>
+                            <td><a href="{{ path('admin.promotion.delete',{id:promotion.id}) }}" class="delete-button"><i class="far fa-trash-alt"></i></a></td>
                         </tr>
                     {% endfor %}
 
@@ -112,4 +112,42 @@
         </div>
 
     </div>
+
+
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+
+        $( document ).ready(function(){
+            // Détecte le hash dans l'url, l'utilise pour sélectionner le lien correspondant, déclenche le clique
+            $("a[href='" + window.location.hash + "']").trigger('click');
+
+            //Demande de comfirmation avant suppression
+            const deleteButtons = document.querySelectorAll('.delete-button');
+            for(const button of deleteButtons){
+                button.addEventListener('click',(e)=> {
+                    e.preventDefault();
+                    const reponse = window.confirm('Êtes-vous certain de vouloir supprimer cet élement?');
+                    console.log(reponse);
+                    if(reponse){
+                        const url= e.currentTarget.href;
+
+                        $.post(url,(id)=>{
+                            console.log(id);
+                            const trElement = document.getElementById(id);
+                            console.log(trElement);
+                            trElement.parentNode.removeChild(trElement);
+                        });
+                    }
+                })
+            }
+
+
+
+        });
+
+
+
+    </script>
 {% endblock %}
