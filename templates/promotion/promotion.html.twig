@@ -1,0 +1,16 @@
+{% extends 'base.html.twig'%}
+
+{% block stylesheets %}
+{{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <div id="promotion">
+        {{ dump(promotion) }}
+        <li>{{ promotion.degree.name }}</li>
+        <li>{{ promotion.year.title }}</li>
+        <li>{{ promotion.startDate.date|date('d/m/Y') }}</li>
+        <li>{{ promotion.endDate.date|date('d/m/Y') }}</li>
+        <li>{{ promotion.notes }}</li>
+    </div>
+{% endblock %}

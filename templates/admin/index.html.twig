@@ -85,6 +85,9 @@
                     <tr>
                         <th scope="col">Nom de le Formation</th>
                         <th scope="col">Années</th>
+                        <th scope="col">Date début</th>
+                        <th scope="col">Date fin</th>
+                        <th scope="col">Notes</th>
                         <th scope="col">Modifier</th>
                         <th scope="col">Supprimer</th>
 
@@ -99,6 +102,20 @@
                             </td>
                             <td>
                                 {{ promotion.year.title }}
+                            </td>
+                            <td>{% if promotion.startDate is not empty %}
+                                    ...{{ promotion.startDate.date|date('d/m/Y') }}
+                                {% endif %}
+
+                            </td>
+                            <td>
+                                {% if promotion.endDate is not empty %}
+                                    ...{{ promotion.endDate.date|date('d/m/Y') }}
+                                {% endif %}
+
+                            </td>
+                            <td>
+                                {{ promotion.notes }}
                             </td>
                             <td><a href="{{ path('admin.promotion.edit',{id:promotion.id}) }}"><i class="far fa-edit"></i></a></td>
                             <td><a href="{{ path('admin.promotion.delete',{id:promotion.id}) }}" class="delete-button"><i class="far fa-trash-alt"></i></a></td>

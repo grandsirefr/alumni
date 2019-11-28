@@ -20,6 +20,7 @@ class AdminPromotionController extends AbstractController
     public function new(Request $request){
         $form=$this->createForm(promotionFormType::class);
         $form->handleRequest($request);
+        //dd($request);
         //est ce qu ele formulaire est soumis?
         if($form->isSubmitted()&& $form->isValid()){
             $promotion=$form->getData();

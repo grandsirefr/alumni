@@ -40,7 +40,7 @@
                     {% endfor %}
                 </select>
 
-                {{ dump(templateData) }}
+               {#{{ dump(templateData) }}#}
             </div>
             <button type="submit" class="button">Go !</button>
         </form>
@@ -53,13 +53,15 @@
 
                 {# table body #}
                 {% for user in pagination %}
+
                     <tr {% if loop.index is odd %}class="color"{% endif %}>
                         <li>
                             {% set avatar_dir = constant('App\\Service\\Avatar\\SvgAvatarFactory::AVATAR_DIR') %}
                             <img src="{{ asset(upload_dir ~ '/' ~ avatar_dir ~ '/' ~ user.avatar)}}" alt="">
                             <p><a href="{{ path('alumni.index',{"id":user.id,"slug":user.slug}) }}">{{ user.lastname }} {{ user.firstname }}</a><br>
                                 {% for promo in user.promotions %}
-                                    {{ promo.degree.name }} {{ promo.year.title }}<br>
+
+                                <a href="{{ path('promotion.index',{"id":promo.id}) }}"> {{ promo.degree.name }} {{ promo.year.title }}</a><br>
                                 {% endfor %}
                             </p>
                         </li>
