@@ -31,7 +31,7 @@ class AdminController extends AbstractController
         $templateData['years'] = $yearRepo->findBy([],['title'=> 'ASC']);
         $templateData['promotions']= $promotionRepo->getAllOrderByDegreeAndYear();
 
-        //dump($degrees);
+        //dd($templateData);
         return $this->render('admin/index.html.twig',['templateData'=>$templateData]);
     }
 }

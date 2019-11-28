@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+{% endblock %}
+{% block body %}
+
+
+
+{% for promo in templateData %}
+{#    {{ dump(promo) }}#}
+    <li>{{ promo.degree.name }}</li>
+    <li>{{ promo.year.title }}</li>
+    {% endfor %}
+
+{% endblock %}
