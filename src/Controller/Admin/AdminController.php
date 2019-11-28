@@ -12,6 +12,8 @@ namespace App\Controller\Admin;
 use App\Repository\DegreeRepository;
 use App\Repository\PromotionRepository;
 use App\Repository\YearRepository;
+use Doctrine\ORM\EntityManager;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -28,6 +30,7 @@ class AdminController extends AbstractController
         $templateData['degrees']=$degreeRepo->findBy([],['name'=> 'ASC']);
         $templateData['years'] = $yearRepo->findBy([],['title'=> 'ASC']);
         $templateData['promotions']= $promotionRepo->getAllOrderByDegreeAndYear();
+
         //dump($degrees);
         return $this->render('admin/index.html.twig',['templateData'=>$templateData]);
     }

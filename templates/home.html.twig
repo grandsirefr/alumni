@@ -19,23 +19,58 @@
             <label for="degree">Formation</label>
             <select name="degree" id="degree">
                 <option value="">Toutes les Années</option>
-                {% for degree in degrees %}
+                {% if app.request.request.get('degree') is not null %}
+{#                    <option value="{{ app.request.request.get('degree') }}">{{ templateData.degrees..name }}</option>#}
+                {% endif %}
+                {% for degree in templateData.degrees %}
                     <option value="{{ degree.id }}">{{ degree.name }}</option>
+
                 {% endfor %}
             </select>
             <div>
                 <label for="year">Année</label>
                 <select name="year" id="year">
                     <option value="">Toutes les Années</option>
-                    {% for year in years %}
+                    {% if app.request.request.get('year') is not null %}
+{#                    <option value="{{ app.request.request.get('year') }}">{{ templateData.year.title }}</option>#}
+                    {% endif %}
+
+                    {% for year in templateData.years %}
                         <option value="{{ year.id }}">{{ year.title }}</option>
                     {% endfor %}
                 </select>
+
+                {{ dump(templateData) }}
             </div>
             <button type="submit" class="button">Go !</button>
         </form>
         <section id="search-results">
-            {%  if results is defined %}
+            <div class="count">
+                {{ pagination.getTotalItemCount }}
+            </div>
+            <table>
+
+
+                {# table body #}
+                {% for user in pagination %}
+                    <tr {% if loop.index is odd %}class="color"{% endif %}>
+                        <li>
+                            {% set avatar_dir = constant('App\\Service\\Avatar\\SvgAvatarFactory::AVATAR_DIR') %}
+                            <img src="{{ asset(upload_dir ~ '/' ~ avatar_dir ~ '/' ~ user.avatar)}}" alt="">
+                            <p><a href="{{ path('alumni.index',{"id":user.id,"slug":user.slug}) }}">{{ user.lastname }} {{ user.firstname }}</a><br>
+                                {% for promo in user.promotions %}
+                                    {{ promo.degree.name }} {{ promo.year.title }}<br>
+                                {% endfor %}
+                            </p>
+                        </li>
+                    </tr>
+                {% endfor %}
+            </table>
+            {# display navigation #}
+            <div class="navigation">
+                {{ knp_pagination_render(pagination) }}
+            </div>
+{#            {%  if results is defined %}
                 <ul>
 
                     {% for user in results %}
@@ -52,7 +87,7 @@
                     {% endfor %}
                 </ul>
 
-            {% endif %}
+            {% endif %}#}
         </section>
     {% endif %}
 {% endblock %}

@@ -20,6 +20,11 @@ class UserRepository extends ServiceEntityRepository
     }
 
     public function search($degree,$year){
+
+        return $this->getQueryPaginator($degree,$year)->getResult();
+    }
+
+    public function getQueryPaginator($degree,$year){
         $qb=$this->createQueryBuilder('u');
 
         if($degree || $year){
@@ -37,9 +42,9 @@ class UserRepository extends ServiceEntityRepository
                 ->andWhere('p.year = :year_id')
                 ->setParameter('year_id',$year);
         }
-        return $qb->getQuery()->getResult();
-    }
+        return $qb->getQuery();
 
+    }
     // /**
     //  * @return User[] Returns an array of User objects
     //  */
