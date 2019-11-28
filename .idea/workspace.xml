@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c15e2988-e7cb-4eaf-bbcb-8506aa387ef9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20191121124523.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Twig/AssetAvatarTwigExtension.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/security/_menu.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/alumni.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/alumni.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -12,20 +9,10 @@
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Admin/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/AdminDegreeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/AdminDegreeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/AdminPromotionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/AdminPromotionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/AdminYearController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/AdminYearController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/Userfixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/Userfixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Degree.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Degree.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Year.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Year.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/DegreeFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/DegreeFormType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/YearFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/YearFormType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/PromotionRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PromotionRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -148,7 +135,6 @@
       <path value="$PROJECT_DIR$/vendor/ocramius/proxy-manager" />
       <path value="$PROJECT_DIR$/vendor/ocramius/package-versions" />
       <path value="$PROJECT_DIR$/vendor/jdorn/sql-formatter" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-cache-bundle" />
       <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
       <path value="$PROJECT_DIR$/vendor/doctrine/orm" />
       <path value="$PROJECT_DIR$/vendor/doctrine/migrations" />
@@ -181,6 +167,9 @@
       <path value="$PROJECT_DIR$/vendor/symfony/security-bundle" />
       <path value="$PROJECT_DIR$/vendor/symfony/security-guard" />
       <path value="$PROJECT_DIR$/vendor/twig/extensions" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-paginator-bundle" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-components" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation" />
     </include_path>
   </component>
   <component name="ProjectId" id="1Tb9Pkf0V8tAxVK6iY3vMPSgRfb" />
@@ -253,7 +242,10 @@
       <workItem from="1574080033223" duration="39000" />
       <workItem from="1574090066258" duration="116000" />
       <workItem from="1574326320830" duration="15915000" />
-      <workItem from="1574406933995" duration="11558000" />
+      <workItem from="1574406933995" duration="18631000" />
+      <workItem from="1574865555224" duration="152000" />
+      <workItem from="1574925085201" duration="226000" />
+      <workItem from="1574925326542" duration="191000" />
     </task>
     <servers />
   </component>
